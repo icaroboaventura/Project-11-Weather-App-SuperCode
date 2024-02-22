@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+h1 {
+  padding-top: 20px;
+}
+
+h1,
+p {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-block: 20px;
+}
+
+.current-weather {
+  min-height: 200px;
+}
+
+.infos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-block: 20px;
+}

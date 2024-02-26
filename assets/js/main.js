@@ -65,33 +65,60 @@ const getWeather = () => {
 
           const currWeather = cityData.weather[0].main;
 
-          const setWeatherImage = (weather, imgElement) => {
-            switch (weather) {
-              case "Thunderstorm":
-                imgElement.src = "./assets/img/thunderstorm.png";
-                break;
-              case "Drizzle":
-                imgElement.src = "./assets/img/shower_rain.png";
-                break;
-              case "Rain":
-                imgElement.src = "./assets/img/rain.png";
-                break;
-              case "Snow":
-                imgElement.src = "./assets/img/snow.png";
-                break;
-              case "Mist":
-                imgElement.src = "./assets/img/mist.png";
-                break;
-              case "Clear":
-                imgElement.src = "./assets/img/clear_sky.png";
-                break;
-              default:
-                imgElement.src = "./assets/img/few_clouds.png";
-                break;
+          const setWeatherImage = (time, weather, imgElement) => {
+            hourArray = timeConvert(time).split(":");
+            if (Number(hourArray[0]) >= 18 || Number(hourArray[0]) <= 6) {
+              switch (weather) {
+                case "Thunderstorm":
+                  imgElement.src = "./assets/img/storm_dark.png";
+                  break;
+                case "Drizzle":
+                  imgElement.src = "./assets/img/drizzle_dark.png";
+                  break;
+                case "Rain":
+                  imgElement.src = "./assets/img/rain_dark.png";
+                  break;
+                case "Snow":
+                  imgElement.src = "./assets/img/snow_dark.png";
+                  break;
+                case "Mist":
+                  imgElement.src = "./assets/img/mist.png";
+                  break;
+                case "Clear":
+                  imgElement.src = "./assets/img/clear_sky_dark.png";
+                  break;
+                default:
+                  imgElement.src = "./assets/img/few_clouds_dark.png";
+                  break;
+              }
+            } else {
+              switch (weather) {
+                case "Thunderstorm":
+                  imgElement.src = "./assets/img/storm.png";
+                  break;
+                case "Drizzle":
+                  imgElement.src = "./assets/img/drizzle.png";
+                  break;
+                case "Rain":
+                  imgElement.src = "./assets/img/rain.png";
+                  break;
+                case "Snow":
+                  imgElement.src = "./assets/img/snow.png";
+                  break;
+                case "Mist":
+                  imgElement.src = "./assets/img/mist.png";
+                  break;
+                case "Clear":
+                  imgElement.src = "./assets/img/clear_sky.png";
+                  break;
+                default:
+                  imgElement.src = "./assets/img/few_clouds.png";
+                  break;
+              }
             }
           };
 
-          setWeatherImage(currWeather, iconCurrWeather);
+          setWeatherImage(cityData.dt, currWeather, iconCurrWeather);
 
           city.innerHTML = `${geoData[0].name} - ${timeConvert(cityData.dt)} - ${currWeather.charAt(0).toUpperCase() + currWeather.slice(1)}`;
 
@@ -104,10 +131,6 @@ const getWeather = () => {
           for (const element of infoGridElement) {
             element.classList.add("grid-element-one");
           }
-
-          // localTime.innerHTML = timeConvert(cityData.dt);
-          // cloudness.innerHTML = currWeather;
-          // pressure.innerHTML = cityData.main.pressure + " nPa";
 
           fahrenheitImg.src = "./assets/img/fahrenheit.png";
           fahrenheit.innerHTML = tempF + "°F";
@@ -139,11 +162,11 @@ const getWeather = () => {
 
               const conditions = [forecast.list[0].weather[0].main, forecast.list[1].weather[0].main, forecast.list[2].weather[0].main, forecast.list[3].weather[0].main, forecast.list[4].weather[0].main];
 
-              setWeatherImage(forecast.list[0].weather[0].main, timeImgOne);
-              setWeatherImage(forecast.list[1].weather[0].main, timeImgTwo);
-              setWeatherImage(forecast.list[2].weather[0].main, timeImgThree);
-              setWeatherImage(forecast.list[3].weather[0].main, timeImgFour);
-              setWeatherImage(forecast.list[4].weather[0].main, timeImgFive);
+              setWeatherImage(list[0].dt, forecast.list[0].weather[0].main, timeImgOne);
+              setWeatherImage(list[1].dt, forecast.list[1].weather[0].main, timeImgTwo);
+              setWeatherImage(list[2].dt, forecast.list[2].weather[0].main, timeImgThree);
+              setWeatherImage(list[3].dt, forecast.list[3].weather[0].main, timeImgFour);
+              setWeatherImage(list[4].dt, forecast.list[4].weather[0].main, timeImgFive);
 
               let newTemps = [];
 

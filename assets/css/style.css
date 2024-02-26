@@ -45,6 +45,16 @@ p {
   position: relative;
 }
 
+.minmax,
+.feelslike {
+  font-weight: bold;
+  color: #e3f4fe;
+}
+
+.feelslike {
+  margin-bottom: 20px;
+}
+
 .current-weather div {
   display: flex;
 }
@@ -55,12 +65,10 @@ p {
 }
 
 .icon-curr-weather {
-  max-width: 350px;
+  max-width: 300px;
   position: absolute;
-  top: 15%;
-  left: 30%;
-  /* background-color: white;
-  border-radius: 50px; */
+  top: 30%;
+  left: 35%;
   animation: 1.5s ease 0s infinite beat;
 }
 
@@ -122,10 +130,10 @@ button:hover {
 }
 
 .current-weather {
-  min-height: 450px;
+  min-height: 500px;
 }
 
-.infos-grid {
+.infos-flex {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,7 +142,7 @@ button:hover {
   margin-block: 20px;
 }
 
-.grid-element-one {
+.flex-element-one {
   width: 120px;
   padding: 10px;
   display: flex;
@@ -144,20 +152,20 @@ button:hover {
   border-radius: 20px;
 }
 
-.grid-element-one p {
+.flex-element-one p {
   color: #1c9cf6;
 }
 
-.infos-grid div p {
+.infos-flex div p {
   font-size: 20px;
   font-weight: 300;
 }
 
-.infos-grid div img {
+.infos-flex div img {
   max-width: 55px;
 }
 
-.hours-grid {
+.hours-flex {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -167,7 +175,7 @@ button:hover {
   font-weight: 300;
 }
 
-.grid-element-two {
+.flex-element-two {
   width: 120px;
   padding: 10px;
   display: flex;
@@ -186,13 +194,13 @@ button:hover {
   margin-block: 5px;
 }
 
-.grid-element-two div {
+.flex-element-two div {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
-.grid-element-two img {
+.flex-element-two img {
   width: 30px;
 }
